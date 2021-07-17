@@ -9,25 +9,11 @@ from psycopg2.errors import SerializationFailure
 con=psycopg2.connect("postgresql://aditya:VPvLGdRkaU_XtBUZ@free-tier6.gcp-asia-southeast1.cockroachlabs.cloud:26257/defaultdb?sslmode=verify-full&sslrootcert=root.crt&options=--cluster%3Dregal-boar-1029")
 cursor=con.cursor()
 
-def welcome_message():
-            print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
-            print('WELCOME TO COCKROACH UNITED BANK')
-            print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
-            
-def create_accounts(conn):
-    with conn.cursor() as cur:
-        cur.execute(
-            "CREATE TABLE IF NOT EXISTS accounts (id INT PRIMARY KEY, balance INT)"
-        )
-        cur.execute("UPSERT INTO accounts (id, balance) VALUES (1, 1000), (2, 250)")
-        logging.debug("create_accounts(): status message:  %s", cur.statusmessage)
-    conn.commit()
-
 ctr=0
 bank=1
 while bank==1:
     print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
-    print("WELCOME TO COCKROACH UNITED BANK ONLINE PORTAL")
+    print("WELCOME TO MySQLBank ONLINE PORTAL")
     print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
     print('Press 1 for Online Banking')
     print('Press 2 for Registering a New Bank Account')
@@ -40,7 +26,7 @@ while bank==1:
     if choice==1:
         def welcome_message():
             print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
-            print('WELCOME TO BANK OF GRINGOTTS')
+            print('WELCOME TO MySQLBank')
             print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
 
         def login():
@@ -171,7 +157,7 @@ while bank==1:
                                 yr=int(input("Enter no. of Years you are taking loan for: "))
                                 print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
                                 emi=((lo*0.00583)*(((1.00583)**(yr*12))))/(((1.00583)**(yr*12))-1)
-                                print("Bank of Gringotts charges an Interest of 7% on loans")
+                                print("MySQLBank charges an Interest of 7% on loans")
                                 print("Your Requested loan amount has to be repaid monthly")
                                 print("Amount to repay the loan per month:  %s",emi)
                                 loa=input("Do you want to continue the loan application? (y/n): ")
@@ -193,7 +179,7 @@ while bank==1:
                                 yr=int(input("Enter no. of Years you are taking loan for: "))
                                 print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
                                 emi=((lo*0.00583)*(((1.00583)**(yr*12))))/(((1.00583)**(yr*12))-1)
-                                print("Bank of Gringotts charges an Interest of 7% on loans")
+                                print("MySQLBank charges an Interest of 7% on loans")
                                 print("Your Requested loan amount has to be repaid monthly")
                                 print("Amount to repay the loan per month:  %s",emi)
                                 loa=input("Do you want to continue the loan application? (y/n): ")
@@ -215,7 +201,7 @@ while bank==1:
                                 yr=int(input("Enter no. of Years you are taking loan for: "))
                                 print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
                                 emi=((lo*0.00583)*(((1.00583)**(yr*12))))/(((1.00583)**(yr*12))-1)
-                                print("Bank of Gringotts charges an Interest of 7% on loans")
+                                print("MySQLBank charges an Interest of 7% on loans")
                                 print("Your Requested loan amount has to be repaid monthly")
                                 print("Amount to repay the loan per month:  %s",emi)
                                 loa=input("Do you want to continue the loan application? (y/n): ")
@@ -237,7 +223,7 @@ while bank==1:
                                 yr=int(input("Enter no. of Years you are taking loan for: "))
                                 print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
                                 emi=((lo*0.00583)*(((1.00583)**(yr*12))))/(((1.00583)**(yr*12))-1)
-                                print("Bank of Gringotts charges an Interest of 7% on loans")
+                                print("MySQLBank charges an Interest of 7% on loans")
                                 print("Your Requested loan amount has to be repaid monthly")
                                 print("Amount to repay the loan per month:  %s",emi)
                                 loa=input("Do you want to continue the loan application? (y/n): ")
@@ -257,7 +243,7 @@ while bank==1:
                                 yr=int(input("Enter no. of Years you are taking loan for: "))
                                 print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
                                 emi=((lo*0.00583)*(((1.00583)**(yr*12))))/(((1.00583)**(yr*12))-1)
-                                print("Bank of Gringotts charges an Interest of 7% on loans")
+                                print("MySQLBank charges an Interest of 7% on loans")
                                 print("Your Requested loan amount has to be repaid monthly")
                                 print("Amount to repay the loan per month:  %s",emi)
                                 loa=input("Do you want to continue the loan application? (y/n): ")
@@ -279,7 +265,7 @@ while bank==1:
                                 yr=int(input("Enter no. of Years you are taking loan for: "))
                                 print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
                                 emi=((lo*0.00583)*(((1.00583)**(yr*12))))/(((1.00583)**(yr*12))-1)
-                                print("Bank of Gringotts charges an Interest of 7% on loans")
+                                print("MySQLBank charges an Interest of 7% on loans")
                                 print("Your Requested loan amount has to be repaid monthly")
                                 print("Amount to repay the loan per month:  %s",emi)
                                 loa=input("Do you want to continue the loan application? (y/n): ")
@@ -324,7 +310,7 @@ while bank==1:
                                     ins=int(input("Enter Claim Amount for Car to be Insured: "))
                                     print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
                                     ina=((ins/5)/12)-(ins/150)
-                                    print("Bank of Gringotts gives Insurance for cars of: ",ins)
+                                    print("MySQLBank gives Insurance for cars of: ",ins)
                                     print("Your Requested Insurance Claim Amount has to be paid yearly")
                                     print("Amount to pay the for Insurance Claim Amount per year: ",ina)
                                     loa=input("Do you want to continue the Insurance Claim application? (y/n): ")
@@ -340,7 +326,7 @@ while bank==1:
                                     ins=int(input("Enter Claim Amount for Bike to be Insured: "))
                                     print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
                                     ina=((ins/5)/15)
-                                    print("Bank of Gringotts gives Insurance for bikes of: ",ins)
+                                    print("MySQLBank gives Insurance for bikes of: ",ins)
                                     print("Your Requested Insurance Claim Amount has to be paid yearly")
                                     print("Amount to pay the for Insurance Claim Amount per year: ",ina)
                                     loa=input("Do you want to continue the Insurance Claim application? (y/n): ")
@@ -358,7 +344,7 @@ while bank==1:
                                 ins=int(input("Enter Claim Amount to be Insured: "))
                                 print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
                                 ina=(ins/12)-(ins/20)
-                                print("Bank of Gringotts gives Life Insurance of: ",ins)
+                                print("MySQLBank gives Life Insurance of: ",ins)
                                 print("Your Requested Insurance Claim Amount has to be paid yearly")
                                 print("Amount to pay the for Insurance Claim Amount per year: ",ina)
                                 loa=input("Do you want to continue the Insurance Claim application? (y/n): ")
@@ -376,7 +362,7 @@ while bank==1:
                                 ins=int(input("Enter Claim Amount to be Insured: "))
                                 print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
                                 ina=(ins/12)/7
-                                print("Bank of Gringotts gives Property Insurance of: ",ins)
+                                print("MySQLBank gives Property Insurance of: ",ins)
                                 print("Your Requested Insurance Claim Amount has to be paid yearly")
                                 print("Amount to pay the for Insurance Claim Amount per year: ",ina)
                                 loa=input("Do you want to continue the Insurance Claim application? (y/n): ")
@@ -395,7 +381,7 @@ while bank==1:
                                 ins=int(input("Enter Claim Amount to be Insured: "))
                                 print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
                                 ina=(ins/12)/7
-                                print("Bank of Gringotts gives Business Liability Insurance of: ",ins)
+                                print("MySQLBank gives Business Liability Insurance of: ",ins)
                                 print("Your Requested Insurance Claim Amount has to be paid yearly")
                                 print("Amount to pay the for Insurance Claim Amount per year: ",ina)
                                 loa=input("Do you want to continue the Insurance Claim application? (y/n): ")
@@ -566,7 +552,7 @@ while bank==1:
         print("Account Closed")
         print('====================================')
     elif choice==4:
-        print('TOLL FREE NO - 18001234567890')
+        print('SUPPORT UNAVAILABLE NOW, PLEASE TRY LATER')
         print('====================================')
     elif choice==5:
         bank=0
