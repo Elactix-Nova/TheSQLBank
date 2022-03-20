@@ -1,10 +1,5 @@
-import time
 import random
-import logging
-from argparse import ArgumentParser, RawTextHelpFormatter
-
 import psycopg2
-from psycopg2.errors import SerializationFailure
 
 con=psycopg2.connect("postgresql://aditya:VPvLGdRkaU_XtBUZ@free-tier6.gcp-asia-southeast1.cockroachlabs.cloud:26257/defaultdb?sslmode=verify-full&sslrootcert=root.crt&options=--cluster%3Dregal-boar-1029")
 cursor=con.cursor()
