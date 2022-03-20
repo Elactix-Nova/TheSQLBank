@@ -1,7 +1,7 @@
 import random
-import psycopg2
+import pymysql
 
-con=psycopg2.connect("postgresql://aditya:VPvLGdRkaU_XtBUZ@free-tier6.gcp-asia-southeast1.cockroachlabs.cloud:26257/defaultdb?sslmode=verify-full&sslrootcert=root.crt&options=--cluster%3Dregal-boar-1029")
+con=pymysql.connect(user='root',password='root',host='localhost')
 cursor=con.cursor()
 
 ctr=0
